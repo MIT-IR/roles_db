@@ -18,6 +18,7 @@ module RolesDb
 
     attr_accessor :strategy_class
     attr_accessor :mocked_account_list_file
+    attr_accessor :endpoint
 
     def initialize
       @is_active = 'true'
@@ -25,6 +26,8 @@ module RolesDb
       @real_or_implied = 'B'
       @function_name = ''
       @strategy_class = "RolesDb::Roles"
+      @roles_wsdl_file = "#{File.dirname(__FILE__)}/../../data/roles.wsdl"
+      @endpoint = "https://ws-test.mit.edu/rolesws/services/roles"
     end
   end
 end
