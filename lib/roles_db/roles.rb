@@ -16,7 +16,11 @@ module RolesDb
       }
 
       File.open(RolesDb.configuration.roles_wsdl_file, "r"){|f|
-        options = ssl_options.merge({wsdl: f})
+        options = ssl_options.merge({
+          wsdl: f,
+          endpoint: RolesDb.configuration.endpoint
+        })
+
         @client = Savon.client(options)
       }
     end
